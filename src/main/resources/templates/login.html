@@ -1,10 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+
+    <title>Log In</title>
+
+    <!-- Bootstrap core CSS -->
+
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+    <link th:href="@{/css/bootstrap-theme.min.css}" rel="stylesheet" />
+    <link th:href="@{/css/signin.css}" rel="stylesheet" />
 </head>
+
 <body>
-$END$
+
+<div class="container">
+
+    <form name="f" class="form-signin"  th:action="@{/login}" method="post">
+        <div th:if="${param.error}" class="alert alert-error">
+            Invalid username and password.
+        </div>
+
+        <div th:if="${param.logout}" class="alert alert-success">
+            You have been logged out.
+        </div>
+
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="username" class="sr-only">Username</label>
+        <input type="text" name="username" id="username" class="form-control" placeholder="Username" required="true" autofocus="true" />
+        <label for="password" class="sr-only">Password</label>
+        <input type="password" name="password" id="password" class="form-control" placeholder="Password" required="true" />
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    </form>
+
+</div>
+
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
 </body>
 </html>
