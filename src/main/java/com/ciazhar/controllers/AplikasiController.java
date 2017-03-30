@@ -22,17 +22,20 @@ public class AplikasiController {
     AplikasiDao dao;
 
     @RequestMapping(value = "/aplikasi", method = RequestMethod.GET)
+    @ResponseBody
     public Page<Aplikasi> daftarMateri(Pageable page){
         return dao.findAll(page);
     }
 
     @RequestMapping(value="/aplikasi/{id}", method = RequestMethod.DELETE)
+    @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     public void hapusMateri(@PathVariable("id") String id){
         dao.delete(id);
     }
 
     @RequestMapping(value="/aplikasi", method = RequestMethod.POST)
+    @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
     public void insertMateriBaru(@RequestBody @Valid Aplikasi m){
         dao.save(m);
