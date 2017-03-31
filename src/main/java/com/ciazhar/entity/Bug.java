@@ -60,4 +60,84 @@ public class Bug {
     @JoinColumn(name = "id_resolver")
     @ManyToOne
     private Programmer resolver;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Versi getVersi() {
+        return versi;
+    }
+
+    public void setVersi(Versi versi) {
+        this.versi = versi;
+    }
+
+    public Tester getSubmitter() {
+        return submitter;
+    }
+
+    public void setSubmitter(Tester submitter) {
+        this.submitter = submitter;
+    }
+
+    public Date getDateSeen() {
+        return dateSeen;
+    }
+
+    public void setDateSeen(Date dateSeen) {
+        this.dateSeen = dateSeen;
+    }
+
+    public String getJudulBug() {
+        return judulBug;
+    }
+
+    public void setJudulBug(String judulBug) {
+        this.judulBug = judulBug;
+    }
+
+    public String getDeskripsiBug() {
+        return deskripsiBug;
+    }
+
+    public void setDeskripsiBug(String deskripsiBug) {
+        this.deskripsiBug = deskripsiBug;
+    }
+
+    public Severity getSeverity() {
+        return severity;
+    }
+
+    public void setSeverity(Severity severity) {
+        this.severity = severity;
+    }
+
+    public Programmer getPenanggungJawab() {
+        return penanggungJawab;
+    }
+
+    public void setPenanggungJawab(Programmer penanggungJawab) {
+        this.penanggungJawab = penanggungJawab;
+    }
+
+    public Date getTanggalFix() {
+        return tanggalFix;
+    }
+
+    public void setTanggalFix(Date tanggalFix) {
+        this.tanggalFix = tanggalFix;
+    }
+
+    public Programmer getResolver() {
+        return resolver;
+    }
+
+    public void setResolver(Programmer resolver) {
+        this.resolver = resolver;
+    }
 }

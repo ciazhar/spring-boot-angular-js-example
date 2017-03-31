@@ -25,4 +25,20 @@ public class Severity {
     @NotNull
     @NotEmpty
     private String severity;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getSeverity() {
+        return severity;
+    }
+
+    public void setSeverity(String severity) {
+        this.severity = severity;
+    }
 }

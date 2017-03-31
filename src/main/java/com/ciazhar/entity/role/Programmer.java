@@ -32,6 +32,27 @@ public class Programmer {
     @Email
     private String email;
 
+    public String getId() {
+        return id;
+    }
 
+    public void setId(String id) {
+        this.id = id;
+    }
 
+    public String getNamaProgrammer() {
+        return namaProgrammer;
+    }
+
+    public void setNamaProgrammer(String namaProgrammer) {
+        this.namaProgrammer = namaProgrammer;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

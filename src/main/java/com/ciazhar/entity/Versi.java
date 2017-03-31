@@ -36,4 +36,36 @@ public class Versi {
             orphanRemoval = true
     )
     private List<Bug> daftarBug = new ArrayList<>();
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public Aplikasi getAplikasi() {
+        return aplikasi;
+    }
+
+    public void setAplikasi(Aplikasi aplikasi) {
+        this.aplikasi = aplikasi;
+    }
+
+    public List<Bug> getDaftarBug() {
+        return daftarBug;
+    }
+
+    public void setDaftarBug(List<Bug> daftarBug) {
+        this.daftarBug = daftarBug;
+    }
 }
