@@ -29,10 +29,10 @@ public class AplikasiController {
         return dao.findAll(page);
     }
 
-    @RequestMapping(value="/aplikasi/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value="/aplikasi/{id_aplikasi}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
-    public void hapusAplikasi(@PathVariable("id") String id){
-        dao.delete(id);
+    public void hapusAplikasi(@PathVariable("id_aplikasi") String id_aplikasi){
+        dao.delete(id_aplikasi);
     }
 
     @RequestMapping(value="/aplikasi", method = RequestMethod.POST)

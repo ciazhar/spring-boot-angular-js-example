@@ -32,10 +32,12 @@
                 <tr>
                     <th>Nama Apikasi</th>
                     <th>Status Rilis</th>
+
                 </tr>
                 <tr ng-repeat= "aplikasi in daftarAplikasi.content">
                     <td>{{aplikasi.nama_aplikasi}}</td>
                     <td>{{aplikasi.status_rilis_aplikasi}}</td>
+                    <td><button class="btn btn-default glyphicon glyphicon-remove" ng-click="hapusAplikasi(aplikasi)"></button></td>
                 </tr>
             </table>
         </div>

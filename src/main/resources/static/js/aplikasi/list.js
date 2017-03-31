@@ -18,6 +18,16 @@ app.controller('aplikasiController',function ($scope, $http) {
     };
     $scope.listAplikasi();
 
+    $scope.hapusAplikasi = function(aplikasi){
+        $http.delete('/api/aplikasi/'+aplikasi.id_aplikasi).then(sukses, gagal);
+        function sukses(response){
+            $scope.listAplikasi();
+        }
+        function gagal(response){
+            console.log('Error'+response);
+        };
+    };
+
     // $scope.simpanAplikasi = function () {
     //     $http.post('/api/aplikasi', $scope.aplikasi).then(sukses,gagal);
     //     function sukses(response) {
