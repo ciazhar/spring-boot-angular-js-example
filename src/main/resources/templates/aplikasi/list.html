@@ -3,11 +3,48 @@
     <meta charset="UTF-8"/>
     <title>Title</title>
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"  media="screen"/>
+    <link rel="stylesheet" th:href="@{/css/starter-template.css}" media="screen"/>
 </head>
-<body ng-app="">
+<body ng-app="aplikasiapp">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" th:href="@{/}">Aplikasi Bug Tracer</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a th:href="@{/aplikasi/list}">Daftar Aplikasi</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Daftar Aplikasi</h1>
+        <div ng-controller="aplikasiController">
+            <table class="table table-striped">
+                <tr>
+                    <th>Nama Apikasi</th>
+                    <th>Status Rilis</th>
+                </tr>
+                <tr ng-repeat= "aplikasi in daftarAplikasi.content">
+                    <td>{{aplikasi.nama_aplikasi}}</td>
+                    <td>{{aplikasi.status_rilis_aplikasi}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
 
 
-<script th:src="@{/js/angular.min.js}"></script>
+
+    <script th:src="@{/js/angular.min.js}"></script>
+    <script th:src="@{/js/aplikasi/list.js}"></script>
 
 </body>
 </html>

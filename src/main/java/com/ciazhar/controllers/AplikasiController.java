@@ -15,30 +15,29 @@ import javax.validation.Valid;
  * Created by ciazhar on 3/30/17.
  */
 
-@Controller
-@RequestMapping("api")
+@RestController
+@RequestMapping("/api")
 public class AplikasiController {
 
     @Autowired
-    AplikasiDao dao;
+    private AplikasiDao dao;
+
 
     @RequestMapping(value = "/aplikasi", method = RequestMethod.GET)
     @ResponseBody
-    public Page<Aplikasi> daftarMateri(Pageable page){
+    public Page<Aplikasi> daftarAplikasi(Pageable page){
         return dao.findAll(page);
     }
 
     @RequestMapping(value="/aplikasi/{id}", method = RequestMethod.DELETE)
-    @ResponseBody
     @ResponseStatus(HttpStatus.OK)
-    public void hapusMateri(@PathVariable("id") String id){
+    public void hapusAplikasi(@PathVariable("id") String id){
         dao.delete(id);
     }
 
     @RequestMapping(value="/aplikasi", method = RequestMethod.POST)
-    @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
-    public void insertMateriBaru(@RequestBody @Valid Aplikasi m){
+    public void insertAplikasiBaru(@RequestBody @Valid Aplikasi m){
         dao.save(m);
     }
 
