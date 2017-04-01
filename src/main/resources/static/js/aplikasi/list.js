@@ -29,7 +29,7 @@ app.controller('aplikasiController',function ($scope, $http, $window) {
     };
 
     var urlRedirect = "http://localhost:8080/aplikasi/form";
-    $scope.redirect = function (aplikasi) {
+    $scope.editAplikasi = function (aplikasi) {
         $window.location.href = urlRedirect;
         $window.sessionStorage.setItem('id',aplikasi.id_aplikasi);
     }
@@ -53,12 +53,12 @@ app.controller('formController',function ($scope, $http, $window) {
     $scope.formAplikasi();
 
     $scope.simpanAplikasi = function () {
-        ///Kondisi ini untuk mengantisipasi tidak terdetensinya inputan sehingga tidak menjadi json
+        ///Kondisi ini untuk mengantisipasi tidak terdeteksinya value di field sehingga tidak menjadi json utuh
         $scope.aplikasi.id_aplikasi = $scope.findedAplikasi.id_aplikasi;
-        if ($scope.aplikasi.nama_aplikasi != $scope.findedAplikasi.nama_aplikasi){
+        if ($scope.aplikasi.nama_aplikasi == null){
             $scope.aplikasi.nama_aplikasi = $scope.findedAplikasi.nama_aplikasi;
         }
-        if ($scope.aplikasi.status_rilis_aplikasi != $scope.findedAplikasi.status_rilis_aplikasi){
+        if ($scope.aplikasi.status_rilis_aplikasi == null){
             $scope.aplikasi.status_rilis_aplikasi = $scope.findedAplikasi.status_rilis_aplikasi;
         }
 

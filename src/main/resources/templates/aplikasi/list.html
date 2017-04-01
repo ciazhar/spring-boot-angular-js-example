@@ -33,13 +33,16 @@
                     <th>Nama Apikasi</th>
                     <th>Status Rilis</th>
                     <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
 
                 </tr>
                 <tr ng-repeat= "aplikasi in daftarAplikasi.content">
                     <td>{{aplikasi.nama_aplikasi}}</td>
                     <td>{{aplikasi.status_rilis_aplikasi}}</td>
                     <td><button class="btn btn-default glyphicon glyphicon-remove" ng-click="hapusAplikasi(aplikasi)"></button></td>
-                    <td><button class="btn btn-default glyphicon glyphicon-edit" ng-click="redirect(aplikasi)"></button></td>
+                    <td><button class="btn btn-default glyphicon glyphicon-edit" ng-click="editAplikasi(aplikasi)"></button></td>
+                    <td><button class="btn btn-default glyphicon glyphicon-edit" ng-click="detilAplikasi(aplikasi)"></button></td>
                 </tr>
             </table>
         </div>
