@@ -14,5 +14,6 @@ public class KonfigurasiWeb extends WebMvcConfigurerAdapter{
     public void addViewControllers(ViewControllerRegistry registry){
         registry.addViewController("/login").setViewName("login");
         registry.addViewController("/aplikasi/list").setViewName("aplikasi/list");
+        registry.addViewController("/aplikasi/form").setViewName("aplikasi/form");
     }
 }

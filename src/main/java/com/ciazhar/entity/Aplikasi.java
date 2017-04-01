@@ -22,7 +22,7 @@ public class Aplikasi {
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id_aplikasi;
 
-    @Column(nullable=false)
+    @Column(nullable=false, unique = true)
     @NotNull
     @NotEmpty
     private String nama_aplikasi;

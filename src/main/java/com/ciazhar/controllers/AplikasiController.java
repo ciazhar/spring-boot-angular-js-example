@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -22,7 +22,6 @@ public class AplikasiController {
     @Autowired
     private AplikasiDao dao;
 
-
     @RequestMapping(value = "/aplikasi", method = RequestMethod.GET)
     @ResponseBody
     public Page<Aplikasi> daftarAplikasi(Pageable page){
@@ -36,9 +35,14 @@ public class AplikasiController {
     }
 
     @RequestMapping(value="/aplikasi", method = RequestMethod.POST)
-    @ResponseStatus(HttpStatus.CREATED)
-    public void insertAplikasiBaru(@RequestBody @Valid Aplikasi m){
+    public void insertAplikasiBaru(@RequestBody @Valid Aplikasi m, BindingResult result){
         dao.save(m);
     }
 
+    @RequestMapping(value="/aplikasi/{id_aplikasi}", method = RequestMethod.GET)
+    @ResponseBody
+    public Aplikasi findAplikasi(@PathVariable("id_aplikasi")String id_aplikasi, Aplikasi aplikasi){
+        aplikasi= dao.findOne(id_aplikasi);
+        return aplikasi;
+    }
 }
