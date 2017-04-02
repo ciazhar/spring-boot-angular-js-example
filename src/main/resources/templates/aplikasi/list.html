@@ -20,6 +20,7 @@
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a th:href="@{/aplikasi/list}">Daftar Aplikasi</a></li>
+                    <li class="active"><a th:href="@{/versi/list}">Daftar Versi</a></li>
                 </ul>
             </div>
         </div>
@@ -38,8 +39,8 @@
 
                 </tr>
                 <tr ng-repeat= "aplikasi in daftarAplikasi.content">
-                    <td>{{aplikasi.nama_aplikasi}}</td>
-                    <td>{{aplikasi.status_rilis_aplikasi}}</td>
+                    <td>{{aplikasi.nama}}</td>
+                    <td>{{aplikasi.statusRilis}}</td>
                     <td><button class="btn btn-default glyphicon glyphicon-remove" ng-click="hapusAplikasi(aplikasi)"></button></td>
                     <td><button class="btn btn-default glyphicon glyphicon-edit" ng-click="editAplikasi(aplikasi)"></button></td>
                     <td><button class="btn btn-default glyphicon glyphicon-edit" ng-click="detilAplikasi(aplikasi)"></button></td>

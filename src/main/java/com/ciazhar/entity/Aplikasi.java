@@ -16,38 +16,39 @@ public class Aplikasi {
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
-    private String id_aplikasi;
+    @Column(name = "id_aplikasi")
+    private String id;
 
-    @Column(nullable=false, unique = true)
+    @Column(name = "nama_aplikasi",nullable=false, unique = true)
     @NotNull
     @NotEmpty
-    private String nama_aplikasi;
+    private String nama;
 
-    @Column(nullable=false, columnDefinition = "boolean DEFAULT 0")
+    @Column(name="status_rilis_aplikasi", nullable = false, columnDefinition = "boolean DEFAULT 0")
     @NotNull
-    private boolean status_rilis_aplikasi;
+    private boolean statusRilis;
 
-    public String getId_aplikasi() {
-        return id_aplikasi;
+    public String getId() {
+        return id;
     }
 
-    public void setId_aplikasi(String id_aplikasi) {
-        this.id_aplikasi = id_aplikasi;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getNama_aplikasi() {
-        return nama_aplikasi;
+    public String getNama() {
+        return nama;
     }
 
-    public void setNama_aplikasi(String nama_aplikasi) {
-        this.nama_aplikasi = nama_aplikasi;
+    public void setNama(String nama) {
+        this.nama = nama;
     }
 
-    public boolean isStatus_rilis_aplikasi() {
-        return status_rilis_aplikasi;
+    public boolean isStatusRilis() {
+        return statusRilis;
     }
 
-    public void setStatus_rilis_aplikasi(boolean status_rilis_aplikasi) {
-        this.status_rilis_aplikasi = status_rilis_aplikasi;
+    public void setStatusRilis(boolean statusRilis) {
+        this.statusRilis= statusRilis;
     }
 }

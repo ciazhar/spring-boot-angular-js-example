@@ -19,7 +19,7 @@ app.controller('aplikasiController',function ($scope, $http, $window) {
     $scope.listAplikasi();
 
     $scope.hapusAplikasi = function(aplikasi){
-        $http.delete('/api/aplikasi/'+aplikasi.id_aplikasi).then(sukses, gagal);
+        $http.delete('/api/aplikasi/'+aplikasi.id).then(sukses, gagal);
         function sukses(response){
             $scope.listAplikasi();
         }
@@ -31,13 +31,13 @@ app.controller('aplikasiController',function ($scope, $http, $window) {
     var urlRedirect = "http://localhost:8080/aplikasi/form";
     $scope.editAplikasi = function (aplikasi) {
         $window.location.href = urlRedirect;
-        $window.sessionStorage.setItem('id',aplikasi.id_aplikasi);
+        $window.sessionStorage.setItem('id',aplikasi.id);
     }
 
     var urlDetilAplikasi = "http://localhost:8080/versi";
     $scope.detilAplikasi = function (aplikasi) {
-        $window.location.href = urlDetilAplikasi+aplikasi.id_aplikasi;
-        $window.sessionStorage.setItem('id',aplikasi.id_aplikasi);
+        $window.location.href = urlDetilAplikasi+aplikasi.id;
+        $window.sessionStorage.setItem('id',aplikasi.id);
     }
 })
 
@@ -59,12 +59,12 @@ app.controller('formController',function ($scope, $http, $window) {
 
     $scope.simpanAplikasi = function () {
         ///Kondisi ini untuk mengantisipasi tidak terdeteksinya value di field sehingga tidak menjadi json utuh
-        $scope.aplikasi.id_aplikasi = $scope.findedAplikasi.id_aplikasi;
-        if ($scope.aplikasi.nama_aplikasi == null){
-            $scope.aplikasi.nama_aplikasi = $scope.findedAplikasi.nama_aplikasi;
+        $scope.aplikasi.id = $scope.findedAplikasi.id;
+        if ($scope.aplikasi.nama == null){
+            $scope.aplikasi.nama = $scope.findedAplikasi.nama;
         }
-        if ($scope.aplikasi.status_rilis_aplikasi == null){
-            $scope.aplikasi.status_rilis_aplikasi = $scope.findedAplikasi.status_rilis_aplikasi;
+        if ($scope.aplikasi.statusRilis == null){
+            $scope.aplikasi.statusRilis = $scope.findedAplikasi.statusRilis;
         }
 
         $http.post('/api/aplikasi', $scope.aplikasi).then(sukses,gagal);

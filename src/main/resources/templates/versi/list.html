@@ -19,7 +19,8 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a th:href="@{/versi/list}">Daftar Aplikasi</a></li>
+                <li class="active"><a th:href="@{/aplikasi/list}">Daftar Aplikasi</a></li>
+                <li class="active"><a th:href="@{/versi/list}">Daftar Versi</a></li>
             </ul>
         </div>
     </div>
@@ -41,7 +42,7 @@
 
             </tr>
             <tr ng-repeat= "versi in daftarVersi.content">
-                <td>{{versi.aplikasi.nama_aplikasi}}</td>
+                <td>{{versi.aplikasi.nama}}</td>
                 <td>{{versi.versi}}</td>
                 <td>{{versi.tanggalDibuat}}</td>
                 <td>{{versi.tanggalRilis}}</td>

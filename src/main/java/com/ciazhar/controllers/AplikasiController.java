@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -28,20 +27,20 @@ public class AplikasiController {
         return dao.findAll(page);
     }
 
-    @RequestMapping(value="/aplikasi/{id_aplikasi}", method = RequestMethod.DELETE)
+    @RequestMapping(value="/aplikasi/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
-    public void hapusAplikasi(@PathVariable("id_aplikasi") String id_aplikasi){
-        dao.delete(id_aplikasi);
+    public void hapusAplikasi(@PathVariable("id") String id){
+        dao.delete(id);
     }
 
     @RequestMapping(value="/aplikasi", method = RequestMethod.POST)
-    public void insertAplikasiBaru(@RequestBody @Valid Aplikasi m, BindingResult result){
+    public void insertAplikasiBaru(@RequestBody @Valid Aplikasi m){
         dao.save(m);
     }
 
-    @RequestMapping(value="/aplikasi/{id_aplikasi}", method = RequestMethod.GET)
+    @RequestMapping(value="/aplikasi/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public Aplikasi findAplikasi(@PathVariable("id_aplikasi")String id_aplikasi){
-        return dao.findOne(id_aplikasi);
+    public Aplikasi findAplikasi(@PathVariable("id")String id){
+        return dao.findOne(id);
     }
 }
