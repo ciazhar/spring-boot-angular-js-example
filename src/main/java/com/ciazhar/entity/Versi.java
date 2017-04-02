@@ -27,7 +27,7 @@ public class Versi {
     @JoinColumn(name = "id_aplikasi")
     private Aplikasi aplikasi;
 
-    @Column(nullable=false)
+    @Column(nullable=false, unique = true)
     @NotNull
     @NotEmpty
     private String versi;
