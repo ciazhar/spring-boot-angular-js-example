@@ -30,7 +30,7 @@
     <div ng-controller="versiController">
         <table class="table table-striped">
             <tr>
-                <th>Id Aplikasi</th>
+                <th>Nama Aplikasi</th>
                 <th>Versi</th>
                 <th>Tanggal Dibuat</th>
                 <th>Tanggal Rilis</th>
@@ -40,10 +40,10 @@
 
             </tr>
             <tr ng-repeat= "versi in daftarVersi.content">
-                <td>{{versi.id_versi}}</td>
-                <td>{{versi.id}}</td>
-                <td>{{versi.tanggal_dibuat}}</td>
-                <td>{{versi.tanggal_rilis}}</td>
+                <td>{{versi.aplikasi.nama_aplikasi}}</td>
+                <td>{{versi.versi}}</td>
+                <td>{{versi.tanggalDibuat}}</td>
+                <td>{{versi.tanggalRilis}}</td>
                 <td>{{versi.daftarBug}}</td>
                 <td><button class="btn btn-default glyphicon glyphicon-remove" ng-click="hapusVersi(versi)"></button></td>
                 <td><button class="btn btn-default glyphicon glyphicon-edit" ng-click="editVersi(versi)"></button></td>

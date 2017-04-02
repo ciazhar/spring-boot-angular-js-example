@@ -15,5 +15,6 @@ public class KonfigurasiWeb extends WebMvcConfigurerAdapter{
         registry.addViewController("/login").setViewName("login");
         registry.addViewController("/aplikasi/list").setViewName("aplikasi/list");
         registry.addViewController("/aplikasi/form").setViewName("aplikasi/form");
+        registry.addViewController("/versi/list").setViewName("versi/list");
     }
 }
