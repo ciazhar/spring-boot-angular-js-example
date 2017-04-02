@@ -28,11 +28,11 @@ app.controller('versiController',function ($scope, $http, $window) {
     //     };
     // };
     //
-    // var urlRedirect = "http://localhost:8080/versi/form";
-    // $scope.editVersi = function (versi) {
-    //     $window.location.href = urlRedirect;
-    //     $window.sessionStorage.setItem('id',versi.id_versi);
-    // }
+    var urlRedirect = "http://localhost:8080/versi/form";
+    $scope.editVersi = function (versi) {
+        $window.location.href = urlRedirect;
+        $window.sessionStorage.setItem('id',versi.id);
+    }
     //
     // var urlDetilVersi = "http://localhost:8080/versi";
     // $scope.detilVersi = function (versi) {
@@ -41,38 +41,42 @@ app.controller('versiController',function ($scope, $http, $window) {
     // }
 })
 
-// app.controller('formController',function ($scope, $http, $window) {
-//     var urlListVersi = "http://localhost:8080/versi/list";
-//     var idnya = $window.sessionStorage.getItem('id');
-//
-//     $scope.formVersi = function () {
-//         $http.get('/api/versi/'+idnya).then(sukses, gagal);
-//         function sukses(response){
-//             $scope.findedVersi = response.data;
-//         }
-//         function gagal(response){
-//             console.log('Error'+response);
-//         };
-//         delete sessionStorage.id;/// delete id agar tidak terjadi redundan
-//     };
-//     $scope.formVersi();
-//
-//     $scope.simpanVersi = function () {
-//         ///Kondisi ini untuk mengantisipasi tidak terdeteksinya value di field sehingga tidak menjadi json utuh
-//         $scope.versi.id_versi = $scope.findedVersi.id_versi;
-//         if ($scope.versi.nama_versi == null){
-//             $scope.versi.nama_versi = $scope.findedVersi.nama_versi;
-//         }
-//         if ($scope.versi.status_rilis_versi == null){
-//             $scope.versi.status_rilis_versi = $scope.findedVersi.status_rilis_versi;
-//         }
-//
-//         $http.post('/api/versi', $scope.versi).then(sukses,gagal);
-//         function sukses(response) {
-//             $window.location.href = urlListVersi;
-//         };
-//         function gagal(response) {
-//             console.log('Error'+response);
-//         };
-//     };
-// })
+app.controller('formController',function ($scope, $http, $window) {
+    var urlListVersi = "http://localhost:8080/versi/list";
+    var idnya = $window.sessionStorage.getItem('id');
+
+    $scope.formVersi = function () {
+        $http.get('/api/versi/?id='+idnya).then(sukses, gagal);
+        function sukses(response){
+            $scope.findedVersi = response.data;
+        }
+        function gagal(response){
+            console.log('Error'+response);
+        };
+        delete sessionStorage.id;/// delete id agar tidak terjadi redundan
+    };
+    $scope.formVersi();
+
+    $scope.simpanVersi = function () {
+        ///Kondisi ini untuk mengantisipasi tidak terdeteksinya value di field sehingga tidak menjadi json utuh
+        $scope.versi.id = $scope.findedVersi.id;
+        $scope.versi.aplikasi = $scope.findedVersi.aplikasi;
+        if ($scope.versi.versi == null){
+            $scope.versi.versi = $scope.findedVersi.versi;
+        }
+        if ($scope.versi.tanggalDibuat == null){
+            $scope.versi.tanggalDibuat = $scope.findedVersi.tanggalDibuat;
+        }
+        if ($scope.versi.tanggalRilis == null){
+            $scope.versi.tanggalRilis = $scope.findedVersi.tanggalRilis;
+        }
+
+        $http.post('/api/versi', $scope.versi).then(sukses,gagal);
+        function sukses(response) {
+            $window.location.href = urlListVersi;
+        };
+        function gagal(response) {
+            console.log('Error'+response);
+        };
+    };
+})

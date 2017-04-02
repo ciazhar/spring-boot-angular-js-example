@@ -1,0 +1,78 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Form Versi</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"  media="screen"/>
+    <link rel="stylesheet" th:href="@{/css/starter-template.css}" media="screen"/>
+</head>
+<body ng-app="versiapp">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" th:href="@{/}">Versi Bug Tracer</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a th:href="@{/aplikasi/list}">Daftar Aplikasi</a></li>
+                <li class="active"><a th:href="@{/versi/list}">Daftar Versi</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container" ng-controller="formController">
+    <h1>Form Versi</h1>
+    <div class="row">
+        <div class="col-sm-8">
+            <form name="versiform" class="form-horizontal">
+                <input type="hidden" ng-model="versi.id" ng-value="finded_versi.id"/>
+                <input type="hidden" ng-model="versi.aplikasi" ng-value="finded_versi.aplikasi"/>
+
+                <fieldset disabled="disabled">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Nama Aplikasi : </label>
+                        <div class="col-sm-10">
+                            <input type="text" id="disabledTextInput" class="form-control" ng-model="versi.aplikasi.nama" ng-value="findedVersi.aplikasi.nama"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Versi : </label>
+                        <div class="col-sm-10">
+                            <input type="text" id="disabledTextInput" class="form-control" ng-model="versi.versi" ng-value="findedVersi.versi"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Tanggal Dibuat : </label>
+                        <div class="col-sm-10">
+                            <input type="date" id="disabledTextInput" class="form-control" ng-model="versi.tanggalDibuat" ng-value="findedVersi.tanggalDibuat"/>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Tanggal Release : </label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control" ng-model="versi.tanggalRilis" ng-value="findedVersi.tanggalRilis"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button ng-disabled="!versiform.$valid" class="btn btn-deffault" type="submit" ng-click="simpanVersi()">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/js/angular.min.js}"></script>
+<script th:src="@{/js/versi/list.js}"></script>
+</body>
+</html>

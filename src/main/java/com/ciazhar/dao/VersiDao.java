@@ -3,6 +3,7 @@ package com.ciazhar.dao;
 import com.ciazhar.entity.Versi;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 /**
@@ -10,5 +11,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  */
 
 public interface VersiDao extends PagingAndSortingRepository<Versi,String> {
-//    public Page<Versi> findByIdAplikasi(String keyword, Pageable pageable);
+
+//    @Query(value = "select v from versi v where aplikasi.id_aplikasi = ?1 ORDER BY keyword")
+//    public Page<Versi> findByAplikasiContaing(String keyword, Pageable pageable);
 }
