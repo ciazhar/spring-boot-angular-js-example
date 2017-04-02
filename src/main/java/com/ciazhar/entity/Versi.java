@@ -7,6 +7,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -18,17 +19,29 @@ public class Versi {
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
+    @Column(name = "id_versi")
     private String id;
-
-    @Column(nullable=false)
-    @NotNull
-    @NotEmpty
-    private String version;
 
     @NotNull
     @ManyToOne
     @JoinColumn(name = "id_aplikasi")
     private Aplikasi aplikasi;
+
+    @Column(nullable=false)
+    @NotNull
+    @NotEmpty
+    private String versi;
+
+    @Column(name = "tanggal_dibuat")
+    @Temporal(TemporalType.DATE)
+    @NotNull
+    private Date tanggalDibuat;
+
+    @Column(name = "tanggal_rilis")
+    @Temporal(TemporalType.DATE)
+    @NotNull
+    private Date tanggalRilis;
+
 
     @OneToMany(
             mappedBy = "versi",
@@ -36,6 +49,30 @@ public class Versi {
             orphanRemoval = true
     )
     private List<Bug> daftarBug = new ArrayList<>();
+
+    public Aplikasi getAplikasi() {
+        return aplikasi;
+    }
+
+    public void setAplikasi(Aplikasi aplikasi) {
+        this.aplikasi = aplikasi;
+    }
+
+    public Date getTanggalDibuat() {
+        return tanggalDibuat;
+    }
+
+    public void setTanggalDibuat(Date tanggalDibuat) {
+        this.tanggalDibuat = tanggalDibuat;
+    }
+
+    public Date getTanggalRilis() {
+        return tanggalRilis;
+    }
+
+    public void setTanggalRilis(Date tanggalRilis) {
+        this.tanggalRilis = tanggalRilis;
+    }
 
     public String getId() {
         return id;
@@ -45,21 +82,14 @@ public class Versi {
         this.id = id;
     }
 
-    public String getVersion() {
-        return version;
+    public String getVersi() {
+        return versi;
     }
 
-    public void setVersion(String version) {
-        this.version = version;
+    public void setVersi(String versi) {
+        this.versi = versi;
     }
 
-    public Aplikasi getAplikasi() {
-        return aplikasi;
-    }
-
-    public void setAplikasi(Aplikasi aplikasi) {
-        this.aplikasi = aplikasi;
-    }
 
     public List<Bug> getDaftarBug() {
         return daftarBug;

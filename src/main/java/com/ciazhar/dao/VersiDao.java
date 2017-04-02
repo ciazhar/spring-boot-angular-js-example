@@ -1,6 +1,8 @@
 package com.ciazhar.dao;
 
 import com.ciazhar.entity.Versi;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 /**
@@ -8,4 +10,5 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  */
 
 public interface VersiDao extends PagingAndSortingRepository<Versi,String> {
+//    public Page<Versi> findByIdAplikasi(String keyword, Pageable pageable);
 }

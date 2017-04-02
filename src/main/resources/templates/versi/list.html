@@ -1,0 +1,65 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Daftar Versi</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"  media="screen"/>
+    <link rel="stylesheet" th:href="@{/css/starter-template.css}" media="screen"/>
+</head>
+<body ng-app="versiapp">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" th:href="@{/}">Aplikasi Bug Tracer</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a th:href="@{/versi/list}">Daftar Aplikasi</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <h1>Daftar Versi</h1>
+    <div ng-controller="versiController">
+        <table class="table table-striped">
+            <tr>
+                <th>Id Aplikasi</th>
+                <th>Versi</th>
+                <th>Tanggal Dibuat</th>
+                <th>Tanggal Rilis</th>
+                <th>Daftar Bug</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+
+            </tr>
+            <tr ng-repeat= "versi in daftarVersi.content">
+                <td>{{versi.id_versi}}</td>
+                <td>{{versi.id}}</td>
+                <td>{{versi.tanggal_dibuat}}</td>
+                <td>{{versi.tanggal_rilis}}</td>
+                <td>{{versi.daftarBug}}</td>
+                <td><button class="btn btn-default glyphicon glyphicon-remove" ng-click="hapusVersi(versi)"></button></td>
+                <td><button class="btn btn-default glyphicon glyphicon-edit" ng-click="editVersi(versi)"></button></td>
+                <td><button class="btn btn-default glyphicon glyphicon-edit" ng-click="detilversi(versi)"></button></td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <a class="btn btn-default" th:href="@{/versi/form}">New</a>
+    </div>
+</div>
+
+
+
+<script th:src="@{/js/angular.min.js}"></script>
+<script th:src="@{/js/versi/list.js}"></script>
+
+</body>
+</html>

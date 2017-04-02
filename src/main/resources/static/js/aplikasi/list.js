@@ -34,6 +34,11 @@ app.controller('aplikasiController',function ($scope, $http, $window) {
         $window.sessionStorage.setItem('id',aplikasi.id_aplikasi);
     }
 
+    var urlDetilAplikasi = "http://localhost:8080/versi";
+    $scope.detilAplikasi = function (aplikasi) {
+        $window.location.href = urlDetilAplikasi+aplikasi.id_aplikasi;
+        $window.sessionStorage.setItem('id',aplikasi.id_aplikasi);
+    }
 })
 
 app.controller('formController',function ($scope, $http, $window) {

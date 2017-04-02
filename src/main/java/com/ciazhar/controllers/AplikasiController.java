@@ -41,8 +41,7 @@ public class AplikasiController {
 
     @RequestMapping(value="/aplikasi/{id_aplikasi}", method = RequestMethod.GET)
     @ResponseBody
-    public Aplikasi findAplikasi(@PathVariable("id_aplikasi")String id_aplikasi, Aplikasi aplikasi){
-        aplikasi= dao.findOne(id_aplikasi);
-        return aplikasi;
+    public Aplikasi findAplikasi(@PathVariable("id_aplikasi")String id_aplikasi){
+        return dao.findOne(id_aplikasi);
     }
 }

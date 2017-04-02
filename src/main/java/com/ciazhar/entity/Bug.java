@@ -17,6 +17,7 @@ import java.util.Date;
 public class Bug {
     @Id @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
+    @Column(name = "id_bug")
     private String id;
 
     @NotNull
@@ -26,20 +27,20 @@ public class Bug {
 
     @ManyToOne
     @NotNull
-    @JoinColumn(name = "id_submitter")
+    @JoinColumn(name = "id_tester")
     private Tester submitter;
 
-    @Column
+    @Column(name = "date_seen")
     @Temporal(TemporalType.DATE)
     @NotNull
     private Date dateSeen;
 
-    @Column(nullable=false)
+    @Column(name = "judul_bug",nullable=false)
     @NotNull
     @NotEmpty
     private String judulBug;
 
-    @Column(nullable=false)
+    @Column(name = "deskripsi_bug", nullable=false)
     @NotNull
     @NotEmpty
     private String deskripsiBug;
@@ -53,7 +54,7 @@ public class Bug {
     @JoinColumn(name = "id_penanggung_jawab")
     private Programmer penanggungJawab;
 
-    @Column
+    @Column(name = "tanggal_fix")
     @Temporal(TemporalType.DATE)
     private Date tanggalFix;
 
