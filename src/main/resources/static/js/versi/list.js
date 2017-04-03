@@ -8,7 +8,15 @@ app.controller('versiController',function ($scope, $http, $window) {
     $scope.daftarVersi = {};
 
     $scope.listVersi = function(){
-        $http.get('/api/versi').then(sukses,gagal);
+        var id = $window.sessionStorage.getItem('id');
+
+        if(id==null){
+            $http.get('/api/versi').then(sukses,gagal);
+        }
+        else {
+            $http.get('/api/versi/aplikasi/'+id).then(sukses,gagal);
+        }
+
         function sukses(response) {
             $scope.daftarVersi = response.data;
         }

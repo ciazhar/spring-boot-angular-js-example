@@ -34,9 +34,9 @@ app.controller('aplikasiController',function ($scope, $http, $window) {
         $window.sessionStorage.setItem('id',aplikasi.id);
     }
 
-    var urlDetilAplikasi = "http://localhost:8080/versi";
+    var urlDetilAplikasi = "http://localhost:8080/versi/list";
     $scope.detilAplikasi = function (aplikasi) {
-        $window.location.href = urlDetilAplikasi+aplikasi.id;
+        $window.location.href = urlDetilAplikasi;
         $window.sessionStorage.setItem('id',aplikasi.id);
     }
 })
