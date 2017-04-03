@@ -42,13 +42,6 @@ public class Versi {
     private Date tanggalRilis;
 
 
-    @OneToMany(
-            mappedBy = "versi",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
-    private List<Bug> daftarBug = new ArrayList<>();
-
     public Aplikasi getAplikasi() {
         return aplikasi;
     }
@@ -90,11 +83,4 @@ public class Versi {
     }
 
 
-    public List<Bug> getDaftarBug() {
-        return daftarBug;
-    }
-
-    public void setDaftarBug(List<Bug> daftarBug) {
-        this.daftarBug = daftarBug;
-    }
 }
