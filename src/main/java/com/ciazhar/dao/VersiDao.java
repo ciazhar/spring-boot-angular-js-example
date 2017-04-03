@@ -12,6 +12,6 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 public interface VersiDao extends PagingAndSortingRepository<Versi,String> {
 
-//    @Query(value = "select v from versi v where aplikasi.id_aplikasi = ?1 ORDER BY keyword")
-//    public Page<Versi> findByAplikasiContaing(String keyword, Pageable pageable);
+    @Query(value = "select v from Versi v where v.aplikasi.id = ?1 ORDER BY id_aplikasi")
+    public Page<Versi> findByAplikasiId(String id_aplikasi, Pageable pageable);
 }

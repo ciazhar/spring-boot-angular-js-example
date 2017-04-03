@@ -30,10 +30,10 @@ public class VersiController {
         return versiDao.findAll(pageable);
     }
 
-//    @RequestMapping("/versi/aplikasi/{id_aplikasi}")
-//    public Page<Versi> daftarVersiByIdAplikasi (@PathVariable("id_aplikasi") String id_aplikasi, Pageable pageable){
-//        return versiDao.findByAplikasiContaing(id_aplikasi, pageable);
-//    }
+    @RequestMapping("/versi/aplikasi/{id_aplikasi}")
+    public Page<Versi> daftarVersiByIdAplikasi (@PathVariable("id_aplikasi") String id_aplikasi, Pageable pageable){
+        return versiDao.findByAplikasiId(id_aplikasi, pageable);
+    }
 
     @RequestMapping(value = "/versi/", method = RequestMethod.GET)
     public Versi detilVersi(@RequestParam("id") String id){
