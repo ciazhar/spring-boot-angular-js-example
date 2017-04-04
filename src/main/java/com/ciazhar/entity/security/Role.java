@@ -32,7 +32,7 @@ public class Role {
     @JoinTable(
         name = "role_permission",
         joinColumns = @JoinColumn(name = "id_role"),
-        inverseJoinColumns = @JoinColumn(name = "id_permisssion")
+        inverseJoinColumns = @JoinColumn(name = "id_permission")
     )
-    private List<Role> daftarPermission = new ArrayList<>();
+    private List<Permission> daftarPermission = new ArrayList<>();
 }

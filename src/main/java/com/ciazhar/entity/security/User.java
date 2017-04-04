@@ -29,7 +29,7 @@ public class User {
     private String password;
 
     @NotNull
-    @Column
+    @Column(columnDefinition = "boolean DEFAULT 1")
     private boolean enabled;
 
     @ManyToMany
