@@ -35,4 +35,36 @@ public class Role {
         inverseJoinColumns = @JoinColumn(name = "id_permission")
     )
     private List<Permission> daftarPermission = new ArrayList<>();
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public List<Permission> getDaftarPermission() {
+        return daftarPermission;
+    }
+
+    public void setDaftarPermission(List<Permission> daftarPermission) {
+        this.daftarPermission = daftarPermission;
+    }
 }

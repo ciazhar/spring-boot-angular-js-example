@@ -17,6 +17,7 @@ public class Employee {
 
     @Id@GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid",strategy = "uuid2")
+    @Column(name = "id_employee")
     private String id;
 
     @Column(nullable=false)
