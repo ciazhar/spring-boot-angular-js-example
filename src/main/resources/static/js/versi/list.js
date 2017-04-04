@@ -23,6 +23,7 @@ app.controller('versiController',function ($scope, $http, $window) {
         function gagal(response) {
             console.log('Error : '+response);
         }
+        delete sessionStorage.id;
     };
     $scope.listVersi();
 
