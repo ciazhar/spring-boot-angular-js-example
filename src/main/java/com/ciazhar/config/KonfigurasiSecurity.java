@@ -72,6 +72,8 @@ public class KonfigurasiSecurity extends WebSecurityConfigurerAdapter{
                 .authorizeRequests()
                 .antMatchers("/css/**","/js/**").permitAll()
                 .antMatchers("/aplikasi/form","/versi/form").hasAuthority("EDIT")
+                .antMatchers(HttpMethod.POST).hasAuthority("EDIT")
+                .antMatchers(HttpMethod.DELETE).hasAuthority("EDIT")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

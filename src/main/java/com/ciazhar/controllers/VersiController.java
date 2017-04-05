@@ -25,12 +25,12 @@ public class VersiController {
     @Autowired
     private VersiDao versiDao;
 
-    @RequestMapping("/versi")
+    @RequestMapping(value = "/versi", method = RequestMethod.GET)
     public Page<Versi> daftarVersi (@SortDefault("tanggalDibuat") Pageable pageable){
         return versiDao.findAll(pageable);
     }
 
-    @RequestMapping("/versi/aplikasi/{id_aplikasi}")
+    @RequestMapping(value = "/versi/aplikasi/{id_aplikasi}", method = RequestMethod.GET)
     public Page<Versi> daftarVersiByIdAplikasi (@PathVariable("id_aplikasi") String id_aplikasi, Pageable pageable){
         return versiDao.findByAplikasiId(id_aplikasi, pageable);
     }
