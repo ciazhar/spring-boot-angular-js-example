@@ -71,7 +71,7 @@ public class KonfigurasiSecurity extends WebSecurityConfigurerAdapter{
         http
                 .authorizeRequests()
                 .antMatchers("/css/**","/js/**").permitAll()
-                .antMatchers(HttpMethod.GET).hasAnyRole("ROLE_STAFF")
+                .antMatchers("/aplikasi/form","/versi/form").hasAuthority("EDIT")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

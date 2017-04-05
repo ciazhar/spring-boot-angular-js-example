@@ -22,27 +22,23 @@ public class AplikasiController {
     @Autowired
     private AplikasiDao dao;
 
-    @PreAuthorize("hasRole('ROLE_STAFF')")
     @RequestMapping(value = "/aplikasi", method = RequestMethod.GET)
     @ResponseBody
     public Page<Aplikasi> daftarAplikasi(Pageable page){
         return dao.findAll(page);
     }
 
-    @PreAuthorize("hasAuthority('EDIT')")
     @RequestMapping(value="/aplikasi/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
     public void hapusAplikasi(@PathVariable("id") String id){
         dao.delete(id);
     }
 
-    @PreAuthorize("hasAuthority('EDIT')")
     @RequestMapping(value="/aplikasi", method = RequestMethod.POST)
     public void insertAplikasiBaru(@RequestBody @Valid Aplikasi m){
         dao.save(m);
     }
 
-    @PreAuthorize("hasAuthority('EDIT')")
     @RequestMapping(value="/aplikasi/{id}", method = RequestMethod.GET)
     @ResponseBody
     public Aplikasi findAplikasi(@PathVariable("id")String id){
