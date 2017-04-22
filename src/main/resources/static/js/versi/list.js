@@ -42,12 +42,12 @@ app.controller('versiController',function ($scope, $http, $window) {
         $window.location.href = urlRedirect;
         $window.sessionStorage.setItem('id',versi.id);
     }
-    //
-    // var urlDetilVersi = "http://localhost:8080/versi";
-    // $scope.detilVersi = function (versi) {
-    //     $window.location.href = urlDetilVersi+versi.id_versi;
-    //     $window.sessionStorage.setItem('id',versi.id_versi);
-    // }
+
+    var urlDetilVersi = "http://localhost:8080/bug/list";
+    $scope.detilVersi = function (versi) {
+        $window.location.href = urlDetilVersi+versi.id_versi;
+        $window.sessionStorage.setItem('id',versi.id_versi);
+    }
 })
 
 app.controller('formController',function ($scope, $http, $window) {

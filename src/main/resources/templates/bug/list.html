@@ -43,11 +43,11 @@
 
             </tr>
             <tr ng-repeat= "bug in daftarBug.content">
-                <td>{{bug.versi.aplikasi.nama_aplikasi}}</td>
-                <td>{{bug.versi.nama_versi}}</td>
-                <td>{{bug.judul_bug}}</td>
-                <td>{{bug.submitter}}</td>
-                <td>{{bug.severity}}</td>
+                <td>{{bug.versi.aplikasi.nama}}</td>
+                <td>{{bug.versi.versi}}</td>
+                <td>{{bug.judulBug}}</td>
+                <td>{{bug.submitter.employee.nama}}</td>
+                <td>{{bug.severity.severity}}</td>
                 <td>{{bug.status_bug}}</td>
                 <td><button class="btn btn-default  glyphicon glyphicon-list" ng-click="detilBug(bug)"> Detail</button></td>
                 <td><button class="btn btn-default glyphicon glyphicon-edit" ng-click="editBug(bug)"> Edit</button></td>
