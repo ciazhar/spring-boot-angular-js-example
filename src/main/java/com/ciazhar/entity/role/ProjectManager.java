@@ -1,12 +1,16 @@
 package com.ciazhar.entity.role;
 
+import com.ciazhar.entity.Aplikasi;
 import com.ciazhar.entity.Employee;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by ciazhar on 3/30/17.
@@ -24,6 +28,14 @@ public class ProjectManager {
     @JoinColumn(name = "id_employee")
     private Employee employee;
 
+    @JsonIgnore
+    @OneToMany(
+            cascade = CascadeType.ALL,
+//            orphanRemoval = true,
+            mappedBy = "projectManager"
+    )
+    private List<Aplikasi> daftarAplikasi = new ArrayList<>();
+
     public String getId() {
         return id;
     }
@@ -38,5 +50,13 @@ public class ProjectManager {
 
     public void setEmployee(Employee employee) {
         this.employee = employee;
+    }
+
+    public List<Aplikasi> getDaftarAplikasi() {
+        return daftarAplikasi;
+    }
+
+    public void setDaftarAplikasi(List<Aplikasi> daftarAplikasi) {
+        this.daftarAplikasi = daftarAplikasi;
     }
 }

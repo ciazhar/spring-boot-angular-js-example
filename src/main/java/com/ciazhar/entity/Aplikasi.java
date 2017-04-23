@@ -1,5 +1,6 @@
 package com.ciazhar.entity;
 
+import com.ciazhar.entity.role.ProjectManager;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -28,6 +29,10 @@ public class Aplikasi {
     @NotNull
     private boolean statusRilis;
 
+    @OneToOne
+    @JoinColumn(name = "id_project_manager")
+    private ProjectManager projectManager;
+
     public String getId() {
         return id;
     }
@@ -50,5 +55,13 @@ public class Aplikasi {
 
     public void setStatusRilis(boolean statusRilis) {
         this.statusRilis= statusRilis;
+    }
+
+    public ProjectManager getProjectManager() {
+        return projectManager;
+    }
+
+    public void setProjectManager(ProjectManager projectManager) {
+        this.projectManager = projectManager;
     }
 }
