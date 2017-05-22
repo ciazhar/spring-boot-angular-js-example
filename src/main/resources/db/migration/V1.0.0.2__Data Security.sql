@@ -1,14 +1,14 @@
 insert into user (id_user, enabled, password, username)
-values ('u001', '1', '123', 'admin');
+values ('u001', '1', '$2a$04$v1UZ4q0SCMTX695Wyowu/eVW9pT3giQivAElwH0A9BuvXktpd/qTq', 'admin');
 
 insert into user (id_user, enabled, password, username)
-values ('u002', '1', '123', 'pm');
+values ('u002', '1', '$2a$12$gdXt7RKK3NteyWd2Z8K5T./ptvupi0MBG0ylW1WBO0/oEsMsGShbm', 'pm');
 
 insert into user (id_user, enabled, password, username)
-values ('u003', '1', '123', 'programmer');
+values ('u003', '1', '$2a$12$mDfe5KMd/kni1QotPNEr6.vmGY2puAlw4uqoAziUU0lSJWg9I0lai', 'programmer');
 
 insert into user (id_user, enabled, password, username)
-values ('u004', '1', '123', 'tester');
+values ('u004', '1', '$2a$12$qEco5G1EU1tF7llL7l2kf.vrWsFtwohI4I690guWEDJ.Zzh8LbG.i', 'tester');
 
 
 insert into role (id_role, nama_role, label_role)

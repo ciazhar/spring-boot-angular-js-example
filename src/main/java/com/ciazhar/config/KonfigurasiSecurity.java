@@ -39,10 +39,10 @@ public class KonfigurasiSecurity extends WebSecurityConfigurerAdapter{
     @Autowired
     DataSource dataSource;
 
-//    @Bean
-//    public BCryptPasswordEncoder passwordEncoder() {
-//        return new BCryptPasswordEncoder();
-//    }
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -50,7 +50,7 @@ public class KonfigurasiSecurity extends WebSecurityConfigurerAdapter{
                 .dataSource(dataSource)
                 .usersByUsernameQuery(SQL_LOGIN)
                 .authoritiesByUsernameQuery(SQL_PERMISSION)
-                /*.passwordEncoder(passwordEncoder())*/;
+                .passwordEncoder(passwordEncoder());
     }
 
 
