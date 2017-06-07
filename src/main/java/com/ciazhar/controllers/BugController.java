@@ -44,4 +44,16 @@ public class BugController {
     public Bug findBug(@PathVariable("id")String id){
         return dao.findOne(id);
     }
+
+    @RequestMapping(value="/bug/versi/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public Page<Bug> findBugByVersiId(@PathVariable("id")String id, Pageable pageable){
+        return dao.findByVersiId(id,pageable);
+    }
+
+    @RequestMapping(value="/bug/aplikasi/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public Page<Bug> findBugByAplikasiId(@PathVariable("id")String id,Pageable pageable){
+        return dao.findByAplikasiId(id, pageable);
+    }
 }
