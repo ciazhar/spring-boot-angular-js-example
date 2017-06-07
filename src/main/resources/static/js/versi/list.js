@@ -40,13 +40,13 @@ app.controller('versiController',function ($scope, $http, $window) {
     var urlRedirect = "http://localhost:8080/versi/form";
     $scope.editVersi = function (versi) {
         $window.location.href = urlRedirect;
-        $window.sessionStorage.setItem('id',versi.id);
+        $window.sessionStorage.setItem('id_versi',versi.id);
     }
 
-    var urlDetilVersi = "http://localhost:8080/bug/list";
-    $scope.detilVersi = function (versi) {
-        $window.location.href = urlDetilVersi+versi.id_versi;
-        $window.sessionStorage.setItem('id',versi.id_versi);
+    var urlListBug = "http://localhost:8080/bug/list";
+    $scope.listBug = function (versi) {
+        $window.location.href = urlListBug;
+        $window.sessionStorage.setItem('id',versi.id);
     }
 })
 

@@ -12,7 +12,7 @@ app.controller('bugController',function ($scope, $http, $window) {
             $http.get('/api/bug').then(sukses, gagal);
         }
         else {
-            $http.get('/api/bug/aplikasi/' + id).then(sukses, gagal);
+            $http.get('/api/bug/versi/' + id).then(sukses, gagal);
         }
 
         function sukses(response) {
